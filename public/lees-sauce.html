@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lee's Sauce - Premium small-batch hot sauces crafted with passion since 2017. Handcrafted Heat for every palate.">
+    <title>Lee's Sauce - Handcrafted Heat Since 2017</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: #ff6b6b;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255,107,107,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(255,107,107,0.1) 0%, transparent 100%);
+        }
+
+        .product-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-heat {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: rgba(255,107,107,0.1);
+            color: #ff6b6b;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Handcrafted Heat</h1>
+            <p>Premium small-batch hot sauces crafted with passion since 2017</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Sauces</h2>
+            <p class="section-subtitle">Three distinct flavours, each with its own personality</p>
+            
+            <div class="product-grid">
+                <!-- Mr. Mild -->
+                <div class="product-card">
+                    <div class="product-content">
+                        <h3 class="product-name">Mr. Mild</h3>
+                        <div class="product-heat">🌶️</div>
+                        <p class="product-description">
+                            A smooth and flavourful sauce with a gentle kick. Perfect for everyday meals and those who appreciate flavour over fire.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Holy Jalapeño -->
+                <div class="product-card">
+                    <div class="product-content">
+                        <h3 class="product-name">Holy Jalapeño</h3>
+                        <div class="product-heat">🌶️🌶️</div>
+                        <p class="product-description">
+                            A heavenly balance of heat and flavour from fresh jalapeños. Divine taste meets blessed heat in every drop.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Horny Habanero -->
+                <div class="product-card">
+                    <div class="product-content">
+                        <h3 class="product-name">Horny Habanero</h3>
+                        <div class="product-heat">🌶️🌶️🌶️</div>
+                        <p class="product-description">
+                            Hot and fiery with the bold flavour of habaneros. Not for the faint of heart! This devil of a sauce brings serious heat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Crafted with Care</h2>
+                <p>
+                    Since 2017, Lee's Sauce has been creating exceptional hot sauces using only the finest ingredients. 
+                    Each batch is carefully crafted to deliver bold flavours and the perfect amount of heat.
+                </p>
+                <p>
+                    From the divine Holy Jalapeño to the devilishly hot Horny Habanero, and the smooth Mr. Mild, 
+                    we have a sauce for every palate and every occasion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Turn Up the Heat?</h2>
+            <p>Experience the bold flavours of Lee's Sauce today</p>
+            <a href="#products" class="btn btn-primary">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2017-2025 Lee's Sauce. All rights reserved. | Handcrafted Heat Since 2017</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lee's Sauce - Premium handcrafted hot sauces since 2017. Try Holy Jalapeño, Horny Habanero, and Mr. Mild.">
+    <title>Lee's Sauce - Handcrafted Heat Since 2017</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000000;
+            color: #F5F1E8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 1rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent);
+            opacity: 0.5;
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #B8B4A8;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #D4AF37;
+            color: #000000;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #E8C757;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #F5F1E8;
+            border: 2px solid #D4AF37;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #B8B4A8;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background-color: #0D0D0D;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #333333;
+            transition: all 0.5s ease;
+            animation: fadeInUp 1s ease-out backwards;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.4s; }
+
+        .product-card:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+            transition: transform 0.7s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: #B8B4A8;
+            margin-bottom: 1rem;
+        }
+
+        .heat-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #D4AF37;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 1rem;
+            border-top: 1px solid #333333;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #B8B4A8;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 1rem;
+        }
+
+        .cta-box {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            color: #B8B4A8;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid #333333;
+            font-size: 0.9rem;
+            color: #B8B4A8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="logo-container">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23000' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' fill='%23D4AF37' font-size='40' font-family='Arial' text-anchor='middle' dominant-baseline='middle'%3ELEE'S SAUCE%3C/text%3E%3C/svg%3E" alt="Lee's Sauce Logo" class="logo">
+        </div>
+        <div class="hero-content">
+            <h1>Handcrafted Heat</h1>
+            <p class="subtitle">Premium small-batch hot sauces crafted with passion since 2017</p>
+            <div class="button-group">
+                <a href="#products" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Sauces</h2>
+            <p class="section-subtitle">Three distinct flavors, each with its own personality</p>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23003D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' fill='%23D4AF37' font-size='30' font-family='Arial' text-anchor='middle' dominant-baseline='middle'%3EHoly%0AJalapeño%3C/text%3E%3C/svg%3E" alt="Holy Jalapeño" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Holy Jalapeño</h3>
+                        <p class="product-description">Divine flavor with a heavenly kick</p>
+                        <span class="heat-badge">Medium</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23003D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' fill='%23D4AF37' font-size='30' font-family='Arial' text-anchor='middle' dominant-baseline='middle'%3EHorny%0AHabanero%3C/text%3E%3C/svg%3E" alt="Horny Habanero" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Horny Habanero</h3>
+                        <p class="product-description">Sinfully spicy, wickedly delicious</p>
+                        <span class="heat-badge">Extra Hot</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23003D1A' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' fill='%23D4AF37' font-size='30' font-family='Arial' text-anchor='middle' dominant-baseline='middle'%3EMr.%0AMild%3C/text%3E%3C/svg%3E" alt="Mr. Mild" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Mr. Mild</h3>
+                        <p class="product-description">Cool, smooth, and flavorful</p>
+                        <span class="heat-badge">Mild</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Crafted with Care</h2>
+                <p>
+                    Since 2017, Lee's Sauce has been creating exceptional hot sauces using only the finest ingredients. 
+                    Each batch is carefully crafted to deliver bold flavors and the perfect amount of heat.
+                </p>
+                <p>
+                    From the divine Holy Jalapeño to the devilishly hot Horny Habanero, and the smooth Mr. Mild, 
+                    we have a sauce for every palate and every occasion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Turn Up the Heat?</h2>
+                <p>Experience the bold flavors of Lee's Sauce today</p>
+                <a href="#products" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2017-2025 Lee's Sauce. All rights reserved. | Handcrafted Heat Since 2017</p>
+    </footer>
+</body>
+</html>
